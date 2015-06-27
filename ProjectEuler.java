@@ -100,7 +100,7 @@ public class ProjectEuler {
 				System.out.println("The answer to Project 5 is: " + i);
 				break;
 			}
-			i++;
+			i+=10;
 		}
 	}
 
