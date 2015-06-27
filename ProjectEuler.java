@@ -83,13 +83,35 @@ public class ProjectEuler {
 		System.out.println("The answer to Project 4 is: " + finalNumber);
 	}
 
+	public void project05 () {
+		// Smallest multiple
+		// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+		int i = 2520;
+		while (true) {
+			if (i%3 == 0 && i%4 ==0
+				&& i%5 ==0 && i%6 ==0
+				&& i%7 ==0 && i%8 ==0
+				&& i%9 ==0 && i%10 ==0
+				&& i%11 ==0 && i%12 ==0
+				&& i%13 ==0 && i%14 ==0
+				&& i%15 ==0 && i%16 ==0
+				&& i%17 ==0 && i%18 ==0
+				&& i%19 ==0 && i%20 ==0) {
+				System.out.println("The answer to Project 5 is: " + i);
+				break;
+			}
+			i++;
+		}
+	}
+
 
 	public static void main (String[] args) {
 		ProjectEuler project = new ProjectEuler();
 		// project.project01();
 		// project.project02();
 		// project.project03();
-		project.project04();
+		// project.project04();
+		project.project05();
 	}
 }
 
