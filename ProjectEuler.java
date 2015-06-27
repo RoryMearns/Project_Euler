@@ -18,7 +18,6 @@ public class ProjectEuler {
 		System.out.println("The answer to Project 1 is: " + x);
 	}
 
-
 	public void project02 () {
 		// Even Fibonacci Numbers
 		// Find the sum of all even Fibonacci numbers less than 4 million
@@ -39,7 +38,6 @@ public class ProjectEuler {
 		System.out.println("The answer to Project 2 is: " + sum);
 	}
 
-
 	public void project03 () {
 		// Largest Prime Factor
 		// What is the largest prime factor of the number 600851475143
@@ -48,20 +46,57 @@ public class ProjectEuler {
 		long num = 600851475143L;
 		long i;
 
-        for (i = 2; i <= num; i++) {
-            if (num % i == 0) {
-                num /= i;
-                i--;
-            }
-        }
-        System.out.println("The answer to Project 3 is: " + i);
+		for (i = 2; i <= num; i++) {
+			if (num % i == 0) {
+				num /= i;
+				i--;
+			}
+		}
+		System.out.println("The answer to Project 3 is: " + i);
+	}
+
+	public void project04 () {
+		// Largest palindrome product
+		// Find the largest palindrome made from the product of two 3-digit numbers
+
+		int number;
+		int finalNumber = 0;
+		int x = 999;
+		int y = 999;
+		String numString;
+		String numBackwards;
+
+		while (x>800) {
+			while (y>800) {
+				number = x*y;
+				// Store the number as a string twice, one normal & one reversed, then compare the two:
+				numString = String.valueOf(number);
+				numBackwards = new StringBuilder(numString).reverse().toString();
+				if (numString.equals(numBackwards)) {
+					finalNumber = (number > finalNumber) ? number : finalNumber;
+				}
+				y--;
+			}
+			x--;
+			y = 999;
+		}
+		System.out.println("The answer to Project 4 is: " + finalNumber);
 	}
 
 
 	public static void main (String[] args) {
 		ProjectEuler project = new ProjectEuler();
-		project.project01();
-		project.project02();
-		project.project03();
+		// project.project01();
+		// project.project02();
+		// project.project03();
+		project.project04();
 	}
 }
+
+
+
+
+
+
+
+
