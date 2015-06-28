@@ -155,6 +155,28 @@ public class ProjectEuler {
 		System.out.println("The answer to Project 8 is: " + maxProduct);
 	}
 
+	public void project09 () {	// Special Pythagorean triplet
+		// There exists exactly one Pythagorean triplet for which a + b + c = 1000. Find the product abc
+
+		int finalA = 0;
+		int finalB = 0;
+		int finalC = 0;
+
+		for (int a=0; a<1000; a++) {
+			for (int b=a+1; b<1000; b++) {
+				for (int c=b+1; c<1000; c++)
+				if (a*a+b*b == c*c && a+b+c == 1000) {
+					finalA = a; 
+					finalB = b;
+					finalC = c;
+					break;
+				}
+			}
+		}
+		System.out.println("The answer to Project 9 is: " + (finalA*finalB*finalC));
+	}
+
+
 	public static void main (String[] args) {
 		ProjectEuler project = new ProjectEuler();
 		// project.project01();
@@ -164,7 +186,8 @@ public class ProjectEuler {
 		// project.project05();
 		// project.project06();
 		// project.project07();
-		project.project08();
+		// project.project08();
+		project.project09();
 	}
 }
 
