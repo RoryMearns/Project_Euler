@@ -81,6 +81,7 @@ public class ProjectEuler {
 
 	public void project05 () {	// Smallest multiple
 		// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
 		int i = 2520;
 		while (true) {
 			if (i%3 == 0 && i%4 == 0
@@ -128,16 +129,6 @@ public class ProjectEuler {
 		System.out.println("The answer to Project 7 is: " + number);
 	}
 
-	public boolean isPrime (int x) {	// Helper method for Project 7
-		// Checks to see if a number is prime, returns true if it is
-		for (int i=2; i*2<x; i++){
-			if (x%i == 0) {
-				return false;
-			}
-		}
-		return true;
-	}
-
 	public void project08 () {	// Largest product in a series
 		// Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 
@@ -176,6 +167,43 @@ public class ProjectEuler {
 		System.out.println("The answer to Project 9 is: " + (finalA*finalB*finalC));
 	}
 
+	public void project10 () {	// Summation of primes
+		// Find the sum of all the primes below two million
+		// First tried a brute force method using my isPrime() method, this took way too long
+		// The below implementation was created after studying the Sieve of Eratosthenes, incredibly quick by comparison
+
+		long sum = 0;
+		boolean[] numbers = new boolean[2000001];
+		double max = Math.sqrt(numbers.length);
+
+		for (int i=2; i<numbers.length; i++) {
+			if (numbers[i] == false) {
+				sum += i;
+				if (i<max) {
+					for (long k=2*i; k<numbers.length; k+=i) {
+						numbers[(int)k] = true;
+					}
+				}
+			}
+		}
+		
+		System.out.println("The answer to Project 10 is: " + sum);
+	}
+
+// --------------------------------------------- Helper Methods --------------------------------------------- //
+
+	public boolean isPrime (int x) {	// Helper method for checking prime quality
+		// Checks to see if a number is prime, returns true if it is
+
+		for (int i=2; i*2<x; i++){
+			if (x%i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+// ----------------------------------------------- Main Method ---------------------------------------------- //
 
 	public static void main (String[] args) {
 		ProjectEuler project = new ProjectEuler();
@@ -187,7 +215,8 @@ public class ProjectEuler {
 		// project.project06();
 		// project.project07();
 		// project.project08();
-		project.project09();
+		// project.project09();
+		project.project10();
 	}
 }
 
